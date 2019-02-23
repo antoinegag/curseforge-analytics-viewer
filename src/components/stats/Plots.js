@@ -50,6 +50,8 @@ class Plots extends React.Component {
               type: 'scatter',
               mode: 'lines+points',
               marker: { color: 'orange' },
+              // fill: "tozeroy",
+              stackgroup: 'one'
             },
             {
               x: days,
@@ -58,6 +60,8 @@ class Plots extends React.Component {
               type: 'scatter',
               mode: 'lines+points',
               marker: { color: 'purple' },
+              // fill: "tozeroy",
+              stackgroup: 'one'
             },
           ]}
           layout={{ title: "Downloads", autosize: true }} 
