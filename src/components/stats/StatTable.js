@@ -1,21 +1,7 @@
 import React from "react";
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 
 class StatTable extends React.Component {
-
-  renderStats() {
-    const { stats, headers } = this.state;
-
-    return (
-      <div>
-        <table>
-          <tr>
-          </tr>
-
-        </table>
-      </div>
-    )
-  }
 
   render() {
     const { fields, stats } = this.props;
