@@ -31,7 +31,7 @@ class App extends Component {
       end: stats[stats.length - 1].date,
     }
     return (
-      <div style={{ marginLeft: "1rem" }}>
+      <div style={{ marginLeft: "1rem", marginRight: "1rem"}}>
         <Header as="h2">
           <Icon name="chart line"/>
           <Header.Content>
@@ -41,7 +41,7 @@ class App extends Component {
         </Header>
         <Header as="h3">
           <Icon name="calendar alternate outline"/>
-          {range.start} to {range.end}
+          {range.start} to {range.end} ({stats.length - 1} days)
         </Header>
         <Plots fields={fields} stats={stats}/>
         <Header as="h2"><Icon name="database" />Raw data</Header>

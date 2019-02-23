@@ -50,7 +50,6 @@ class Plots extends React.Component {
               type: 'scatter',
               mode: 'lines+points',
               marker: { color: 'orange' },
-              // fill: "tozeroy",
               stackgroup: 'one'
             },
             {
@@ -60,7 +59,6 @@ class Plots extends React.Component {
               type: 'scatter',
               mode: 'lines+points',
               marker: { color: 'purple' },
-              // fill: "tozeroy",
               stackgroup: 'one'
             },
           ]}
