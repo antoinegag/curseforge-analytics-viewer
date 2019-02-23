@@ -28,6 +28,7 @@ class ImportCSV extends React.Component {
   }
 
   handleFileChosen(file) {
+    if (!file) return;
     const fileReader = new FileReader();
     fileReader.onloadend = this.handleFileRead;
     fileReader.readAsText(file);
@@ -35,14 +36,14 @@ class ImportCSV extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="mt-1">
+        <Label pointing="below">Find analytics data at <a href="//minecraft.curseforge.com/dashboard/projects">https://minecraft.curseforge.com/dashboard/projects</a></Label><br/>
         <Input type='file'
           id='file'
           className='input-file'
           accept='.csv'
           onChange={e => this.handleFileChosen(e.target.files[0])}
         />
-        <Label pointing="left">Choose a CSV file with CurseForge analytics data</Label>
       </div>
     );
   }

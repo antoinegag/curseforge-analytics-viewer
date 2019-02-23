@@ -4,7 +4,7 @@ import parseAnalytics from "./utils/parseAnalytics";
 import NavBar from "./components/NavBar";
 import StatTable from "./components/stats/StatTable";
 import Plots from "./components/stats/Plots";
-import { Header, Icon } from "semantic-ui-react";
+import { Header, Icon, Container } from "semantic-ui-react";
 
 class App extends Component {
   constructor(props) {
@@ -25,13 +25,26 @@ class App extends Component {
   }
 
   renderAnalytics() {
-    const { fields, stats } = this.state;
-
+    const { project, fields, stats } = this.state;
+    const range = {
+      start: stats[0].date,
+      end: stats[stats.length - 1].date,
+    }
     return (
-      <div style={{textAlign: "center"}}>
-        <Header><Icon name="chart line"/>Your stats</Header>
+      <div style={{ marginLeft: "1rem" }}>
+        <Header as="h2">
+          <Icon name="chart line"/>
+          <Header.Content>
+            {project.name}
+            <Header.Subheader>ID {project.id}</Header.Subheader>
+          </Header.Content>
+        </Header>
+        <Header as="h3">
+          <Icon name="calendar alternate outline"/>
+          {range.start} to {range.end}
+        </Header>
         <Plots fields={fields} stats={stats}/>
-        <Header><Icon name="database" />Raw data</Header>
+        <Header as="h2"><Icon name="database" />Raw data</Header>
         <StatTable fields={fields} stats={stats}/>
       </div>
     )
@@ -43,10 +56,12 @@ class App extends Component {
     return (
       <div>
         <NavBar />
-        <ImportCSV 
-          onData={this.handleAnalytics}
-        />
-        <b>Note:</b> your file is <strong>NOT</strong> uploaded to any server.
+        <Container textAlign="center">
+          <ImportCSV 
+            onData={this.handleAnalytics}
+          />
+          <b>Note:</b> your file is <strong>NOT</strong> uploaded to any server.
+        </Container>
         {stats && this.renderAnalytics()}
       </div>
     );

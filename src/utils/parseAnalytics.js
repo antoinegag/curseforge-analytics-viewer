@@ -6,6 +6,10 @@ export default function parseAnalytics(analytics) {
     fileData.pop(); // Remove mystery empty entry
 
     const stats = [];
+    const project = {
+      name: fileData[1][2],
+      id: fileData[1][1],
+    }
 
     fileData.forEach(record => {
       const statsLine = {
@@ -23,6 +27,7 @@ export default function parseAnalytics(analytics) {
     });
 
     return {
+      project,
       fields,
       stats
     }
