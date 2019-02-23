@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Image,
   Menu,
   Icon,
 } from 'semantic-ui-react'

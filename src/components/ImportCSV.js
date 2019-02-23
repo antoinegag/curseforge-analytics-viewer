@@ -34,8 +34,6 @@ class ImportCSV extends React.Component {
   }
 
   render() {
-    const { stats } = this.state;
-
     return (
       <div>
         <Input type='file'

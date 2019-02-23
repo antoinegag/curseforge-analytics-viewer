@@ -3,6 +3,8 @@ import ImportCSV from "./components/ImportCSV";
 import parseAnalytics from "./utils/parseAnalytics";
 import NavBar from "./components/NavBar";
 import StatTable from "./components/stats/StatTable";
+import Plots from "./components/stats/Plots";
+import { Header, Icon } from "semantic-ui-react";
 
 class App extends Component {
   constructor(props) {
@@ -22,8 +24,21 @@ class App extends Component {
     })
   }
 
-  render() {
+  renderAnalytics() {
     const { fields, stats } = this.state;
+
+    return (
+      <div style={{textAlign: "center"}}>
+        <Header><Icon name="chart line"/>Your stats</Header>
+        <Plots fields={fields} stats={stats}/>
+        <Header><Icon name="database" />Raw data</Header>
+        <StatTable fields={fields} stats={stats}/>
+      </div>
+    )
+  }
+
+  render() {
+    const { stats } = this.state;
 
     return (
       <div>
@@ -32,7 +47,7 @@ class App extends Component {
           onData={this.handleAnalytics}
         />
         <b>Note:</b> your file is <strong>NOT</strong> uploaded to any server.
-        {stats && <StatTable fields={fields} stats={stats}/>}
+        {stats && this.renderAnalytics()}
       </div>
     );
   }
