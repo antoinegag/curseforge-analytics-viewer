@@ -40,7 +40,7 @@ const Summary = ({ project, fields, stats }) => {
       </div>
       <div className="mt-1">
         <Header as="h2">Downloads</Header>
-        <Statistic.Group size="small">
+        <Statistic.Group size="tiny">
           <Statistic>
             <Statistic.Value>{downloadSum}</Statistic.Value>
             <Statistic.Label>Total</Statistic.Label>
@@ -54,7 +54,7 @@ const Summary = ({ project, fields, stats }) => {
             <Statistic.Label>Growth</Statistic.Label>
           </Statistic>
         </Statistic.Group>
-        <Statistic.Group size="small">
+        <Statistic.Group size="tiny">
           <Statistic color="purple">
             <Statistic.Value>{twitchPercentage.toFixed(2)}%</Statistic.Value>
             <Statistic.Label>from Twitch App</Statistic.Label>
