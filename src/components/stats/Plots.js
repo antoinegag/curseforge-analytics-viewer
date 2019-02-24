@@ -55,6 +55,14 @@ class Plots extends React.Component {
             },
             {
               x: days,
+              y: stats.map(entry => entry.dailyUniqueDownload),
+              name: "Unique downloads",
+              type: 'scatter',
+              mode: 'lines+points',
+              marker: { color: 'red' },
+            },
+            {
+              x: days,
               y: stats.map(entry => entry.dailyDownload),
               name: "Daily downloads",
               type: 'scatter',
