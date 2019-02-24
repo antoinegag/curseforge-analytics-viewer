@@ -2,6 +2,7 @@
 
 [https://antoinegag.github.io/curseforge-analytics-viewer/](https://antoinegag.github.io/curseforge-analytics-viewer/)
 
+
 ## Privacy
 
 ### Where does the file I upload go?

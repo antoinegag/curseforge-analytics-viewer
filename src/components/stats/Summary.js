@@ -28,8 +28,6 @@ const Summary = ({ project, fields, stats }) => {
   }
 
   const pointDailyAverage = pointSum / stats.length;
-
-  //TODO: add some kind of disclaimer tooltip
   const PTS_USD_RATE = 0.05;
   const estimatedRevenues = pointSum * PTS_USD_RATE;
   const dailyEstimatedRevenues = pointDailyAverage * PTS_USD_RATE;
