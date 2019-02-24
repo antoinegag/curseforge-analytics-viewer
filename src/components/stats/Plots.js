@@ -37,14 +37,6 @@ class Plots extends React.Component {
           data={[
             {
               x: days,
-              y: stats.map(entry => entry.dailyDownload),
-              name: "Daily downloads",
-              type: 'scatter',
-              mode: 'lines+points',
-              marker: { color: 'green' },
-            },
-            {
-              x: days,
               y: stats.map(entry => entry.dailyCurseForgeDownload),
               name: "Daily CurseForge Download",
               type: 'scatter',
@@ -60,6 +52,14 @@ class Plots extends React.Component {
               mode: 'lines+points',
               marker: { color: 'purple' },
               stackgroup: 'one'
+            },
+            {
+              x: days,
+              y: stats.map(entry => entry.dailyDownload),
+              name: "Daily downloads",
+              type: 'scatter',
+              mode: 'lines+points',
+              marker: { color: 'green' },
             },
           ]}
           layout={{ title: "Downloads", autosize: true }} 

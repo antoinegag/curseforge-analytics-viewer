@@ -27,7 +27,7 @@ const Summary = ({ project, fields, stats }) => {
     <div>
       <div>
         <Header as="h2">Points</Header>
-        <Statistic.Group size="small">
+        <Statistic.Group size="tiny">
           <Statistic>
             <Statistic.Value>{pointSum.toFixed(2)}</Statistic.Value>
             <Statistic.Label>Total</Statistic.Label>
