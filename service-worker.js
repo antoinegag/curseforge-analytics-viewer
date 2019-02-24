@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/curseforge-analytics-viewer/precache-manifest.8f2002f78dcf47eb8b866621b3b933bc.js"
+  "/curseforge-analytics-viewer/precache-manifest.8a8a817a3dd12172e0ec873d792d33b6.js"
 );
 
 workbox.clientsClaim();
