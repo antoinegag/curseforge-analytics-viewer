@@ -17,11 +17,11 @@ export default function parseAnalytics(analytics) {
           // id: record[1],
           // name: record[2],
           points: parseFloat(record[3]),
-          historicalDownload: record[4],
-          dailyDownload: record[5],
-          dailyUniqueDownload: record[6],
-          dailyTwitchAppDownload: record[7],
-          dailyCurseForgeDownload: record[8],
+          historicalDownload: parseInt(record[4]),
+          dailyDownload: parseInt(record[5]),
+          dailyUniqueDownload: parseInt(record[6]),
+          dailyTwitchAppDownload: parseInt(record[7]),
+          dailyCurseForgeDownload: parseInt(record[8]),
       };
       stats.push(statsLine);
     });

@@ -4,7 +4,8 @@ import parseAnalytics from "./utils/parseAnalytics";
 import NavBar from "./components/NavBar";
 import StatTable from "./components/stats/StatTable";
 import Plots from "./components/stats/Plots";
-import { Header, Icon, Container } from "semantic-ui-react";
+import { Header, Icon, Container, Divider } from "semantic-ui-react";
+import Summary from "./components/stats/Summary";
 
 class App extends Component {
   constructor(props) {
@@ -43,6 +44,8 @@ class App extends Component {
           <Icon name="calendar alternate outline"/>
           {range.start} to {range.end} ({stats.length - 1} days)
         </Header>
+        <Divider />
+        <Summary project={project} fields={fields} stats={stats} />
         <Plots fields={fields} stats={stats}/>
         <Header as="h2"><Icon name="database" />Raw data</Header>
         <StatTable fields={fields} stats={stats}/>
