@@ -37,7 +37,7 @@ class ImportCSV extends React.Component {
   render() {
     return (
       <div className="mt-1">
-        <Label pointing="below">Find analytics data at <a href="//minecraft.curseforge.com/dashboard/projects">https://minecraft.curseforge.com/dashboard/projects</a></Label><br/>
+        <Label pointing="below">Find analytics data at <a target="_blank" rel="noopener noreferrer" href="//minecraft.curseforge.com/dashboard/projects">https://minecraft.curseforge.com/dashboard/projects</a></Label><br/>
         <Input type='file'
           id='file'
           className='input-file'
