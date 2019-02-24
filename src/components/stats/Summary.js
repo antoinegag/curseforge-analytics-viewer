@@ -88,6 +88,10 @@ const Summary = ({ project, fields, stats }) => {
             <Statistic.Label>Daily average</Statistic.Label>
           </Statistic>
           <Statistic>
+            <Statistic.Value>{uniqueDownloadSum.toLocaleString()}</Statistic.Value>
+            <Statistic.Label>Total unique</Statistic.Label>
+          </Statistic>
+          <Statistic>
             <Statistic.Value>{uniqueness.toFixed(1)}%</Statistic.Value>
             <Statistic.Label>Uniqueness</Statistic.Label>
           </Statistic>
