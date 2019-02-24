@@ -37,7 +37,7 @@ class App extends Component {
           <Icon name="chart line"/>
           <Header.Content>
             {project.name}
-            <Header.Subheader>ID {project.id}</Header.Subheader>
+            <Header.Subheader>Id. {project.id}</Header.Subheader>
           </Header.Content>
         </Header>
         <Header as="h3">
