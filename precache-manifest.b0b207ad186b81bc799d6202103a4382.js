@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "d89a4a8eb95a917eca7f",
+    "revision": "53641cc20d74617bc325",
     "url": "/curseforge-analytics-viewer/static/css/main.e521eb6d.chunk.css"
   },
   {
-    "revision": "d89a4a8eb95a917eca7f",
-    "url": "/curseforge-analytics-viewer/static/js/main.d89a4a8e.chunk.js"
+    "revision": "53641cc20d74617bc325",
+    "url": "/curseforge-analytics-viewer/static/js/main.53641cc2.chunk.js"
   },
   {
     "revision": "a8ace01d15767ad6606d",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/curseforge-analytics-viewer/static/js/2.cced5a92.chunk.js"
   },
   {
-    "revision": "d99f3f0738711077a10941a1f31b0f2d",
+    "revision": "51c5933a0e20b1edb1b579d87ff9dbf2",
     "url": "/curseforge-analytics-viewer/index.html"
   }
 ];
