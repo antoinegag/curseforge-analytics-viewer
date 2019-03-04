@@ -14,11 +14,11 @@ class StatTable extends React.Component {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {stats.map((stat) => 
+          {stats.map((stat) =>
             <Table.Row>
-              {Object.entries(stat).map(entry => <Table.Cell>{entry[1]}</Table.Cell>)}
+              {Object.entries(stat).map(entry => <Table.Cell>{entry[1].toLocaleString()}</Table.Cell>)}
             </Table.Row>
-          )}         
+          )}
         </Table.Body>
       </Table>
     );
