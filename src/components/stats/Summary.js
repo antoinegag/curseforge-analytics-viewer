@@ -1,7 +1,8 @@
 import React from "react";
 import { Statistic, Header, Icon, Popup } from "semantic-ui-react";
 
-const Summary = ({ project, fields, stats }) => {
+const Summary = ({ analytics }) => {
+  const { project, fields, stats, summary } = analytics;
   const fixedTwo = {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
@@ -11,32 +12,21 @@ const Summary = ({ project, fields, stats }) => {
     maximumFractionDigits: 0,
   }
 
-  let pointSum = 0;
-  let downloadSum = 0;
-  let uniqueDownloadSum = 0;
-  let curseDownloadSum = 0;
-  let twitchDownloadSum = 0;
-
-  for (let i = 0; i < stats.length; i++) {
-    const record = stats[i];
-
-    pointSum += record.points;
-    downloadSum += record.dailyDownload;
-    uniqueDownloadSum += record.dailyUniqueDownload;
-    curseDownloadSum += record.dailyCurseForgeDownload;
-    twitchDownloadSum += record.dailyTwitchAppDownload;
-  }
-
-  const pointDailyAverage = pointSum / stats.length;
-  const PTS_USD_RATE = 0.05;
-  const estimatedRevenues = pointSum * PTS_USD_RATE;
-  const dailyEstimatedRevenues = pointDailyAverage * PTS_USD_RATE;
-
-  const growth = (downloadSum / stats[0].historicalDownload) * 100;
-  const downloadDailyAverage = downloadSum / stats.length;
-  const uniqueness = (uniqueDownloadSum / downloadSum) * 100;
-  const cursePercentage = ((curseDownloadSum / downloadSum) * 100);
-  const twitchPercentage = ((twitchDownloadSum / downloadSum) * 100);
+  const {
+    pointSum,
+    downloadSum,
+    uniqueDownloadSum,
+    cursePercentage,
+    twitchPercentage,
+    curseDownloadSum,
+    twitchDownloadSum,
+    pointDailyAverage,
+    estimatedRevenues,
+    dailyEstimatedRevenues,
+    growth,
+    downloadDailyAverage,
+    uniqueness,
+  } = summary;
 
   return (
     <div>

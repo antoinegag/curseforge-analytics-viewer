@@ -10,23 +10,22 @@ import Summary from "./components/stats/Summary";
 class App extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
-      fields: null,
-      stats: null,
+      analytics: null,
     }
 
     this.handleAnalytics = this.handleAnalytics.bind(this);
   }
-  
+
   handleAnalytics(data) {
     this.setState({
-      ...parseAnalytics(data.data),
+      analytics: parseAnalytics(data.data),
     })
   }
 
   renderAnalytics() {
-    const { project, fields, stats } = this.state;
+    const { project, fields, stats } = this.state.analytics;
     const range = {
       start: stats[0].date,
       end: stats[stats.length - 1].date,
@@ -45,7 +44,7 @@ class App extends Component {
           {range.start} to {range.end} ({stats.length - 1} days)
         </Header>
         <Divider />
-        <Summary project={project} fields={fields} stats={stats} />
+        <Summary analytics={this.state.analytics} />
         <Plots fields={fields} stats={stats}/>
         <Header as="h2"><Icon name="database" />Raw data</Header>
         <StatTable fields={fields} stats={stats}/>
@@ -54,18 +53,18 @@ class App extends Component {
   }
 
   render() {
-    const { stats } = this.state;
+    const { analytics } = this.state;
 
     return (
       <div>
         <NavBar />
         <Container textAlign="center">
-          <ImportCSV 
+          <ImportCSV
             onData={this.handleAnalytics}
           />
           <b>Note:</b> your file is <strong>NOT</strong> uploaded to any server.
         </Container>
-        {stats && this.renderAnalytics()}
+        {analytics && this.renderAnalytics()}
       </div>
     );
   }
