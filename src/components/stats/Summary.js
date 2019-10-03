@@ -1,5 +1,5 @@
 import React from "react";
-import { Statistic, Header, Icon, Popup } from "semantic-ui-react";
+import { Statistic, Header, Icon, Popup, Dropdown } from "semantic-ui-react";
 
 const Summary = ({ analytics }) => {
   const { project, fields, stats, summary } = analytics;
@@ -28,6 +28,20 @@ const Summary = ({ analytics }) => {
     uniqueness,
   } = summary;
 
+  const totalEstimatedOptions = [
+    {key: "USD", text: "$" + estimatedRevenues[0].toFixed(2), value: "USD"},
+    {key: "GBP", text: "£" + estimatedRevenues[1].toFixed(2), value: "GBP"},
+    {key: "EUR", text: "€" + estimatedRevenues[2].toFixed(2), value: "EUR"},
+    {key: "CAD", text: "$" + estimatedRevenues[3].toFixed(2), value: "CAD"}
+  ];
+  const dailyEstimatedOptions = [
+    {key: "USD", text: "$" + dailyEstimatedRevenues[0].toFixed(2), value: "USD"},
+    {key: "GBP", text: "£" + dailyEstimatedRevenues[1].toFixed(2), value: "GBP"},
+    {key: "EUR", text: "€" + dailyEstimatedRevenues[2].toFixed(2), value: "EUR"},
+    {key: "CAD", text: "$" + dailyEstimatedRevenues[3].toFixed(2), value: "CAD"}
+  ];
+
+
   return (
     <div>
       <div>
@@ -42,7 +56,9 @@ const Summary = ({ analytics }) => {
             <Statistic.Label>Daily average</Statistic.Label>
           </Statistic>
           <Statistic>
-            <Statistic.Value>${estimatedRevenues[0].toFixed(2)} USD</Statistic.Value>
+            <Statistic.Value>
+              <Dropdown upward floating inline options={totalEstimatedOptions} defaultValue="USD"/>
+            </Statistic.Value>
             <Statistic.Label>
               Estimated revenues
               <Popup
@@ -52,7 +68,9 @@ const Summary = ({ analytics }) => {
             </Statistic.Label>
           </Statistic>
           <Statistic>
-            <Statistic.Value>${dailyEstimatedRevenues[0].toFixed(2)} USD</Statistic.Value>
+            <Statistic.Value>
+              <Dropdown upward floating inline options={dailyEstimatedOptions} defaultValue="USD"/>
+            </Statistic.Value>
             <Statistic.Label>
               Daily estimated revenues
               <Popup
@@ -60,68 +78,7 @@ const Summary = ({ analytics }) => {
                 content={"Calculated on a 1pts to $0.05 USD rate"}
               />
             </Statistic.Label>
-            </Statistic>
-            <Statistic>
-            <Statistic.Value>£{estimatedRevenues[1].toFixed(2)} GBP</Statistic.Value>
-            <Statistic.Label>
-              Estimated revenues
-              <Popup
-                trigger={<Icon name="question circle" />}
-                content={"Calculated on a 123pts to £5.00 GBP rate"}
-              />
-            </Statistic.Label>
           </Statistic>
-          <Statistic>
-            <Statistic.Value>£{dailyEstimatedRevenues[1].toFixed(2)} GBP</Statistic.Value>
-            <Statistic.Label>
-              Daily estimated revenues
-              <Popup
-                trigger={<Icon name="question circle" />}
-                content={"Calculated on a 123pts to £5.00 GBP rate"}
-              />
-            </Statistic.Label>
-          </Statistic>
-          <Statistic>
-            <Statistic.Value>€{estimatedRevenues[2].toFixed(2)} EUR</Statistic.Value>
-            <Statistic.Label>
-              Estimated revenues
-              <Popup
-                trigger={<Icon name="question circle" />}
-                content={"Calculated on a 219pts to €10 EUR rate"}
-              />
-            </Statistic.Label>
-          </Statistic>
-          <Statistic>
-            <Statistic.Value>€{dailyEstimatedRevenues[2].toFixed(2)} EUR</Statistic.Value>
-            <Statistic.Label>
-              Daily estimated revenues
-              <Popup
-                trigger={<Icon name="question circle" />}
-                content={"Calculated on a 219pts to €10 EUR rate"}
-              />
-            </Statistic.Label>
-          </Statistic>
-          <Statistic>
-            <Statistic.Value>${estimatedRevenues[3].toFixed(2)} CAD</Statistic.Value>
-            <Statistic.Label>
-              Estimated revenues
-              <Popup
-                trigger={<Icon name="question circle" />}
-                content={"Calculated on a 7pts to $5.00 CAD rate"}
-              />
-            </Statistic.Label>
-          </Statistic>
-          <Statistic>
-            <Statistic.Value>${dailyEstimatedRevenues[3].toFixed(2)} CAD</Statistic.Value>
-            <Statistic.Label>
-              Daily estimated revenues
-              <Popup
-                trigger={<Icon name="question circle" />}
-                content={"Calculated on a 76pts to $5.00 CAD rate"}
-              />
-            </Statistic.Label>
-          </Statistic>
-
         </Statistic.Group>
       </div>
       <div className="mt-1">
