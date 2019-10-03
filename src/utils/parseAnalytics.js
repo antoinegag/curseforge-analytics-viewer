@@ -40,7 +40,11 @@ export default function parseAnalytics(analytics) {
   });
 
   const pointDailyAverage = pointSum / stats.length;
+
   const PTS_USD_RATE = 0.05;
+  const PTS_GBP_RATE = 5/123;
+  const PTS_EUR_RATE = 10/219;
+  const PTS_CAD_RATE = 5/76;
 
   const summary = {
     curseDownloadSum,
@@ -51,8 +55,8 @@ export default function parseAnalytics(analytics) {
     cursePercentage: ((curseDownloadSum / downloadSum) * 100),
     twitchPercentage: ((twitchDownloadSum / downloadSum) * 100),
     pointDailyAverage,
-    estimatedRevenues: pointSum * PTS_USD_RATE,
-    dailyEstimatedRevenues: pointDailyAverage * PTS_USD_RATE,
+    estimatedRevenues: [ pointSum * PTS_USD_RATE, pointSum * PTS_GBP_RATE, pointSum * PTS_EUR_RATE, pointSum * PTS_CAD_RATE ],
+    dailyEstimatedRevenues: [ pointDailyAverage * PTS_USD_RATE, pointDailyAverage * PTS_GBP_RATE, pointDailyAverage * PTS_EUR_RATE, pointDailyAverage * PTS_CAD_RATE ],
     growth: (downloadSum / stats[0].historicalDownload) * 100,
     downloadDailyAverage: downloadSum / stats.length,
     uniqueness: (uniqueDownloadSum / downloadSum) * 100,

@@ -42,7 +42,7 @@ const Summary = ({ analytics }) => {
             <Statistic.Label>Daily average</Statistic.Label>
           </Statistic>
           <Statistic>
-            <Statistic.Value>${estimatedRevenues.toFixed(2)} USD</Statistic.Value>
+            <Statistic.Value>${estimatedRevenues[0].toFixed(2)} USD</Statistic.Value>
             <Statistic.Label>
               Estimated revenues
               <Popup
@@ -52,7 +52,7 @@ const Summary = ({ analytics }) => {
             </Statistic.Label>
           </Statistic>
           <Statistic>
-            <Statistic.Value>${dailyEstimatedRevenues.toFixed(2)} USD</Statistic.Value>
+            <Statistic.Value>${dailyEstimatedRevenues[0].toFixed(2)} USD</Statistic.Value>
             <Statistic.Label>
               Daily estimated revenues
               <Popup
@@ -60,7 +60,68 @@ const Summary = ({ analytics }) => {
                 content={"Calculated on a 1pts to $0.05 USD rate"}
               />
             </Statistic.Label>
+            </Statistic>
+            <Statistic>
+            <Statistic.Value>£{estimatedRevenues[1].toFixed(2)} GBP</Statistic.Value>
+            <Statistic.Label>
+              Estimated revenues
+              <Popup
+                trigger={<Icon name="question circle" />}
+                content={"Calculated on a 123pts to £5.00 GBP rate"}
+              />
+            </Statistic.Label>
           </Statistic>
+          <Statistic>
+            <Statistic.Value>£{dailyEstimatedRevenues[1].toFixed(2)} GBP</Statistic.Value>
+            <Statistic.Label>
+              Daily estimated revenues
+              <Popup
+                trigger={<Icon name="question circle" />}
+                content={"Calculated on a 123pts to £5.00 GBP rate"}
+              />
+            </Statistic.Label>
+          </Statistic>
+          <Statistic>
+            <Statistic.Value>€{estimatedRevenues[2].toFixed(2)} EUR</Statistic.Value>
+            <Statistic.Label>
+              Estimated revenues
+              <Popup
+                trigger={<Icon name="question circle" />}
+                content={"Calculated on a 219pts to €10 EUR rate"}
+              />
+            </Statistic.Label>
+          </Statistic>
+          <Statistic>
+            <Statistic.Value>€{dailyEstimatedRevenues[2].toFixed(2)} EUR</Statistic.Value>
+            <Statistic.Label>
+              Daily estimated revenues
+              <Popup
+                trigger={<Icon name="question circle" />}
+                content={"Calculated on a 219pts to €10 EUR rate"}
+              />
+            </Statistic.Label>
+          </Statistic>
+          <Statistic>
+            <Statistic.Value>${estimatedRevenues[3].toFixed(2)} CAD</Statistic.Value>
+            <Statistic.Label>
+              Estimated revenues
+              <Popup
+                trigger={<Icon name="question circle" />}
+                content={"Calculated on a 7pts to $5.00 CAD rate"}
+              />
+            </Statistic.Label>
+          </Statistic>
+          <Statistic>
+            <Statistic.Value>${dailyEstimatedRevenues[3].toFixed(2)} CAD</Statistic.Value>
+            <Statistic.Label>
+              Daily estimated revenues
+              <Popup
+                trigger={<Icon name="question circle" />}
+                content={"Calculated on a 76pts to $5.00 CAD rate"}
+              />
+            </Statistic.Label>
+          </Statistic>
+
         </Statistic.Group>
       </div>
       <div className="mt-1">
