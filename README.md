@@ -1,5 +1,9 @@
 # CurseForge Analytics Viewer
 
+# Demo
+https://streamable.com/4xby3
+
+# Live at
 [https://antoinegag.github.io/curseforge-analytics-viewer/](https://antoinegag.github.io/curseforge-analytics-viewer/)
 
 ## Getting Started
