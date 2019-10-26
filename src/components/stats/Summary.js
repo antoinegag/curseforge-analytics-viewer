@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Statistic, Header, Icon, Popup, Dropdown } from "semantic-ui-react";
 
 const Summary = ({ analytics }) => {
@@ -41,6 +41,11 @@ const Summary = ({ analytics }) => {
     {key: "CAD", text: "$" + dailyEstimatedRevenues[3].toFixed(2), value: "CAD"}
   ];
 
+  const [currency, setCurrency] = useState("USD");
+
+  const changeCurrency = (e,d) => {
+    setCurrency(d.value)
+  }
 
   return (
     <div>
@@ -57,7 +62,7 @@ const Summary = ({ analytics }) => {
           </Statistic>
           <Statistic>
             <Statistic.Value>
-              <Dropdown upward floating inline options={totalEstimatedOptions} defaultValue="USD"/>
+              <Dropdown upward floating inline options={totalEstimatedOptions} value={currency} onChange={changeCurrency}/>
             </Statistic.Value>
             <Statistic.Label>
               Estimated revenues
@@ -69,7 +74,7 @@ const Summary = ({ analytics }) => {
           </Statistic>
           <Statistic>
             <Statistic.Value>
-              <Dropdown upward floating inline options={dailyEstimatedOptions} defaultValue="USD"/>
+              <Dropdown upward floating inline options={dailyEstimatedOptions} value={currency} onChange={changeCurrency}/>
             </Statistic.Value>
             <Statistic.Label>
               Daily estimated revenues
