@@ -21,24 +21,27 @@ const Summary = ({ analytics }) => {
     curseDownloadSum,
     twitchDownloadSum,
     pointDailyAverage,
-    estimatedRevenues,
-    dailyEstimatedRevenues,
     growth,
     downloadDailyAverage,
     uniqueness,
   } = summary;
 
+  const PTS_USD_RATE = 0.05;
+  const PTS_GBP_RATE = 5/123;
+  const PTS_EUR_RATE = 10/219;
+  const PTS_CAD_RATE = 5/76;
+
   const totalEstimatedOptions = [
-    {key: "USD", text: "$" + estimatedRevenues[0].toFixed(2), value: "USD"},
-    {key: "GBP", text: "£" + estimatedRevenues[1].toFixed(2), value: "GBP"},
-    {key: "EUR", text: "€" + estimatedRevenues[2].toFixed(2), value: "EUR"},
-    {key: "CAD", text: "$" + estimatedRevenues[3].toFixed(2), value: "CAD"}
+    {key: "USD", text: "$" + (pointSum * PTS_USD_RATE).toFixed(2), value: "USD"},
+    {key: "GBP", text: "£" + (pointSum * PTS_GBP_RATE).toFixed(2), value: "GBP"},
+    {key: "EUR", text: "€" + (pointSum * PTS_EUR_RATE).toFixed(2), value: "EUR"},
+    {key: "CAD", text: "$" + (pointSum * PTS_CAD_RATE).toFixed(2), value: "CAD"}
   ];
   const dailyEstimatedOptions = [
-    {key: "USD", text: "$" + dailyEstimatedRevenues[0].toFixed(2), value: "USD"},
-    {key: "GBP", text: "£" + dailyEstimatedRevenues[1].toFixed(2), value: "GBP"},
-    {key: "EUR", text: "€" + dailyEstimatedRevenues[2].toFixed(2), value: "EUR"},
-    {key: "CAD", text: "$" + dailyEstimatedRevenues[3].toFixed(2), value: "CAD"}
+    {key: "USD", text: "$" + (pointDailyAverage * PTS_USD_RATE).toFixed(2), value: "USD"},
+    {key: "GBP", text: "£" + (pointDailyAverage * PTS_GBP_RATE).toFixed(2), value: "GBP"},
+    {key: "EUR", text: "€" + (pointDailyAverage * PTS_EUR_RATE).toFixed(2), value: "EUR"},
+    {key: "CAD", text: "$" + (pointDailyAverage * PTS_CAD_RATE).toFixed(2), value: "CAD"}
   ];
 
   const [currency, setCurrency] = useState("USD");
