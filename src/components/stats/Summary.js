@@ -32,16 +32,16 @@ const Summary = ({ analytics }) => {
   const PTS_CAD_RATE = 5/76;
 
   const totalEstimatedOptions = [
-    {key: "USD", text: "$" + (pointSum * PTS_USD_RATE).toFixed(2), value: "USD"},
+    {key: "USD", text: "$" + (pointSum * PTS_USD_RATE).toFixed(2) + "USD", value: "USD"},
     {key: "GBP", text: "£" + (pointSum * PTS_GBP_RATE).toFixed(2), value: "GBP"},
     {key: "EUR", text: "€" + (pointSum * PTS_EUR_RATE).toFixed(2), value: "EUR"},
-    {key: "CAD", text: "$" + (pointSum * PTS_CAD_RATE).toFixed(2), value: "CAD"}
+    {key: "CAD", text: "$" + (pointSum * PTS_CAD_RATE).toFixed(2) + "CAD", value: "CAD"}
   ];
   const dailyEstimatedOptions = [
-    {key: "USD", text: "$" + (pointDailyAverage * PTS_USD_RATE).toFixed(2), value: "USD"},
+    {key: "USD", text: "$" + (pointDailyAverage * PTS_USD_RATE).toFixed(2) + "USD", value: "USD"},
     {key: "GBP", text: "£" + (pointDailyAverage * PTS_GBP_RATE).toFixed(2), value: "GBP"},
     {key: "EUR", text: "€" + (pointDailyAverage * PTS_EUR_RATE).toFixed(2), value: "EUR"},
-    {key: "CAD", text: "$" + (pointDailyAverage * PTS_CAD_RATE).toFixed(2), value: "CAD"}
+    {key: "CAD", text: "$" + (pointDailyAverage * PTS_CAD_RATE).toFixed(2) + "CAD", value: "CAD"}
   ];
 
   const [currency, setCurrency] = useState("USD");
