@@ -40,7 +40,6 @@ export default function parseAnalytics(analytics) {
   });
 
   const pointDailyAverage = pointSum / stats.length;
-  const PTS_USD_RATE = 0.05;
 
   const summary = {
     curseDownloadSum,
@@ -51,8 +50,6 @@ export default function parseAnalytics(analytics) {
     cursePercentage: ((curseDownloadSum / downloadSum) * 100),
     twitchPercentage: ((twitchDownloadSum / downloadSum) * 100),
     pointDailyAverage,
-    estimatedRevenues: pointSum * PTS_USD_RATE,
-    dailyEstimatedRevenues: pointDailyAverage * PTS_USD_RATE,
     growth: (downloadSum / stats[0].historicalDownload) * 100,
     downloadDailyAverage: downloadSum / stats.length,
     uniqueness: (uniqueDownloadSum / downloadSum) * 100,
