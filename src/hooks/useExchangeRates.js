@@ -6,7 +6,7 @@ export default function useExchangeRates() {
   useEffect(() => {
     const fetchRates = async () => {
       const res = await fetch(
-        "https://api.exchangeratesapi.io/latest?base=USD&symbols=CAD,GBP,EUR,USD,INR"
+        "https://api.exchangeratesapi.io/latest?base=USD&symbols=CAD,GBP,EUR,USD,INR,CHF,ZAR"
       );
       if (res.ok) {
         const json = await res.json();
