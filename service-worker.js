@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/curseforge-analytics-viewer/precache-manifest.55ed0e8d289ecaee3ab82fdaa8106537.js"
+  "/curseforge-analytics-viewer/precache-manifest.2d743d69bbf0baba755ea8b2e9fdc7b0.js"
 );
 
 self.addEventListener('message', (event) => {
