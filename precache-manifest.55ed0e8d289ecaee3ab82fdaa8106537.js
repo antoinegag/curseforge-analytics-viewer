@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5cb9403ee2c3955ad4ac4359ecf42497",
+    "revision": "493908cfca993ecb45e071a19a688556",
     "url": "/curseforge-analytics-viewer/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/curseforge-analytics-viewer/static/css/2.f87e9f44.chunk.css"
   },
   {
-    "revision": "196b77b545d4e06bb0e5",
+    "revision": "7c4c340eb0acc482f5cb",
     "url": "/curseforge-analytics-viewer/static/css/main.b1245320.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/curseforge-analytics-viewer/static/js/2.67fde0e8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "196b77b545d4e06bb0e5",
-    "url": "/curseforge-analytics-viewer/static/js/main.b5d58d40.chunk.js"
+    "revision": "7c4c340eb0acc482f5cb",
+    "url": "/curseforge-analytics-viewer/static/js/main.04b9a303.chunk.js"
   },
   {
     "revision": "b316b72d9b820d511f7b",
