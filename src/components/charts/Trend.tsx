@@ -9,6 +9,7 @@ interface Props {
   stats: StatsLine[];
   field: keyof StatsLine;
   color?: string;
+  formattedFileName?: string;
   className?: string;
   ValueRenderer?: React.ComponentType<ValueRendererProps>;
 }
@@ -17,6 +18,7 @@ export default function Trend({
   title,
   stats,
   field,
+  formattedFileName,
   className,
   color = "#DD5F18",
   ValueRenderer,
@@ -40,6 +42,7 @@ export default function Trend({
           data={data}
           ValueRenderer={ValueRenderer}
           color={color}
+          axisNames={{ y: formattedFileName }}
         />
       </div>
     </div>

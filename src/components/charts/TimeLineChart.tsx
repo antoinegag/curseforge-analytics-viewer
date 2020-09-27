@@ -5,6 +5,7 @@ interface Props {
   data: Serie[];
   height?: number;
   color?: string;
+  axisNames?: { x?: string; y?: string };
   ValueRenderer?: React.ComponentType<ValueRendererProps>;
 }
 
@@ -24,6 +25,7 @@ export default function TimeLineChart({
   height = 400,
   color = "#DD5F18",
   ValueRenderer = DefaultValueRender,
+  axisNames = { x: "x", y: "y" },
 }: Props) {
   return (
     <div style={{ height: height }}>
@@ -44,12 +46,16 @@ export default function TimeLineChart({
         tooltip={({ point }) => {
           const date = point.data.x as Date;
           return (
-            <div className="bg-gray-100 p-2 border border-gray-500">
+            <div className="bg-gray-100 border border-orange-600 rounded-lg bg-opacity-75 px-5 py-2">
               <div>
-                {`${date.getDay()}-${date.getMonth()}-${date.getFullYear()}`}
+                Date:{" "}
+                <span className="font-bold">{`${date.toLocaleDateString()}`}</span>
               </div>
               <div>
-                <ValueRenderer value={point.data.y} />
+                {axisNames.y}:{" "}
+                <span className="font-bold">
+                  <ValueRenderer value={point.data.y} />
+                </span>
               </div>
             </div>
           );

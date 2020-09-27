@@ -72,11 +72,12 @@ export default function Analytic({ analytics }: Props) {
         stats={analytics.stats}
         field="points"
         title="Daily points"
+        formattedFileName="Points"
         className="mb-6"
         ValueRenderer={({ value }) => {
           return (
             <>
-              {value} ({`${(parseFloat(value as string) * 0.05).toFixed(2)}`}{" "}
+          {value} (${`${(parseFloat(value as string) * 0.05).toFixed(2)}`}{" "}
               USD)
             </>
           );
@@ -86,12 +87,14 @@ export default function Analytic({ analytics }: Props) {
         stats={analytics.stats}
         field="dailyDownload"
         title="Daily downloads"
+        formattedFileName="Downloads"
         className="mb-6"
       />
       <Trend
         stats={analytics.stats}
         field="historicalDownload"
         title="Downloads over time"
+        formattedFileName="Total Downloads"
         className="mb-6"
       />
     </div>
