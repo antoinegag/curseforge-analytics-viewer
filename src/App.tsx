@@ -16,26 +16,32 @@ import Contact from "./pages/Contact";
 
 function App() {
   useEffect(() => {
-    const lastImport = localStorage.getItem("lastImport");
-    if (lastImport != null) {
-      setData(JSON.parse(lastImport) as Analytics);
+    if (process.env.NODE_ENV === "development") {
+      const lastImport = localStorage.getItem("lastImport");
+      if (lastImport != null) {
+        setData(JSON.parse(lastImport) as Analytics);
+      }
     }
   }, []);
 
   const handleUpload = useCallback(async (file: File) => {
     setLoading(true);
+    setFile(file);
     const res = await parseCSVFile(file);
     const analytics = parseAnalytics(res.data as string[][]);
 
     setData(analytics);
 
-    localStorage.setItem("lastImport", JSON.stringify(analytics));
+    if (false && process.env.NODE_ENV === "development") {
+      localStorage.setItem("lastImport", JSON.stringify(analytics));
+    }
 
     setLoading(false);
   }, []);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<Analytics>();
+  const [file, setFile] = useState<File>();
 
   return (
     <Router>
@@ -56,12 +62,24 @@ function App() {
           </Route>
           <Route path="/">
             {loading && <div>Loading</div>}
-            {!loading && data && <Analytic analytics={data} />}
             {!loading && (
-              <FileUpload
-                className={classNames({ "flex-grow": !data })}
-                onUpload={handleUpload}
-              />
+              <div
+                className={classNames(
+                  { "flex-grow": !data },
+                  "lg:w-2/3 mb-5 lg:mx-auto flex"
+                )}
+              >
+                <FileUpload
+                  className={classNames("w-full", { "flex-grow": !data })}
+                  onUpload={handleUpload}
+                  file={file}
+                />
+              </div>
+            )}
+            {!loading && data && (
+              <div>
+                <Analytic analytics={data} />
+              </div>
             )}
           </Route>
         </Switch>

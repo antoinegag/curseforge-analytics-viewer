@@ -7,11 +7,10 @@ import { DocumentReport } from "heroicons-react";
 interface Props {
   className?: string;
   onUpload?: Function;
+  file?: File;
 }
 
-export default function FileUpload({ className, onUpload }: Props) {
-  const [file, setFile] = useState<File>();
-
+export default function FileUpload({ className, onUpload, file }: Props) {
   const onDrop = useCallback(
     async (acceptedFiles) => {
       if (!acceptedFiles[0]) {
@@ -19,7 +18,6 @@ export default function FileUpload({ className, onUpload }: Props) {
       }
       const newFile = acceptedFiles[0];
 
-      setFile(newFile);
       onUpload && onUpload(newFile);
     },
     [onUpload]

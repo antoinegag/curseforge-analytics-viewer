@@ -27,6 +27,15 @@ export default function Privacy() {
           <p>No data is ever shared with any third party.</p>
         </div>
       </div>
+      <div className="mb-3">
+        <h3 className="mb-3">Source Code</h3>
+        <p>
+          You can view the source code of this app on{" "}
+          <a href="https://github.com/antoinegag/curseforge-analytics-viewer">
+            Github
+          </a>
+        </p>
+      </div>
 
       <div>
         <p>This privacy policy is subject to change at any time</p>
