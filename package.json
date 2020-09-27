@@ -30,7 +30,7 @@
   },
   "scripts": {
     "build:style": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
-    "start": "yarn run build:style && react-scripts start",
+    "start": "set PUBLIC_URL=. && yarn run build:style && react-scripts start",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
     "build": "yarn run build:style && react-scripts build",

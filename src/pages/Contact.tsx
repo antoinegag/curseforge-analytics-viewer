@@ -1,4 +1,4 @@
-import { Mail, Globe } from "heroicons-react";
+import { Mail } from "heroicons-react";
 import React from "react";
 import Layout from "./Layout";
 

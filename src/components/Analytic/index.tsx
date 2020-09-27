@@ -7,7 +7,7 @@ interface Props {
 }
 
 export default function Analytic({ analytics }: Props) {
-  const { stats, project, fields, summary } = analytics;
+  const { stats, project, summary } = analytics;
   return (
     <div>
       <div className="text-center">
