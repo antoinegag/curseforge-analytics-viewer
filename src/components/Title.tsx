@@ -31,7 +31,7 @@ export default function Title() {
       <div className="flex-grow">
         <Link to="/" className="no-underline flex items-center flex-grow">
           <img
-            src="/logo-bg.png"
+            src="logo-bg.png"
             width="100"
             className="rounded-full mr-4 hidden md:block"
             alt="CurseForge Analytics logo"
