@@ -1,15 +1,59 @@
-export default function parseAnalytics(analytics) {
+import Papa from "papaparse";
+
+export function parseCSVFile(file: File) {
+  return new Promise<Papa.ParseResult<unknown>>((resolve, reject) => {
+    Papa.parse(file, {
+      complete: (result) => {
+        resolve(result);
+      },
+    });
+  });
+}
+
+export interface StatsLine {
+  date: string;
+  points: number;
+  historicalDownload: number;
+  dailyDownload: number;
+  dailyUniqueDownload: number;
+  dailyTwitchAppDownload: number;
+  dailyCurseForgeDownload: number;
+}
+
+export interface Analytics {
+  project: {
+    name: string;
+    id: string;
+  };
+  fields: string[];
+  stats: StatsLine[];
+  summary: {
+    curseDownloadSum: number;
+    twitchDownloadSum: number;
+    pointSum: number;
+    downloadSum: number;
+    uniqueDownloadSum: number;
+    cursePercentage: number;
+    twitchPercentage: number;
+    pointDailyAverage: number;
+    growth: number;
+    downloadDailyAverage: number;
+    uniqueness: number;
+  };
+}
+
+export default function parseAnalytics(analytics: string[][]): Analytics {
   const fileData = [...analytics];
   const fields = fileData[0];
   fields.splice(1, 2);
   fileData.shift(); // Don't want the headers
   fileData.pop(); // Remove mystery empty entry
 
-  const stats = [];
+  const stats: StatsLine[] = [];
   const project = {
     name: fileData[1][2],
     id: fileData[1][1],
-  }
+  };
 
   let pointSum = 0;
   let downloadSum = 0;
@@ -17,11 +61,9 @@ export default function parseAnalytics(analytics) {
   let curseDownloadSum = 0;
   let twitchDownloadSum = 0;
 
-  fileData.forEach(record => {
+  fileData.forEach((record) => {
     const statsLine = {
       date: record[0],
-      // id: record[1],
-      // name: record[2],
       points: parseFloat(record[3]),
       historicalDownload: parseInt(record[4]),
       dailyDownload: parseInt(record[5]),
@@ -47,18 +89,18 @@ export default function parseAnalytics(analytics) {
     pointSum,
     downloadSum,
     uniqueDownloadSum,
-    cursePercentage: ((curseDownloadSum / downloadSum) * 100),
-    twitchPercentage: ((twitchDownloadSum / downloadSum) * 100),
+    cursePercentage: (curseDownloadSum / downloadSum) * 100,
+    twitchPercentage: (twitchDownloadSum / downloadSum) * 100,
     pointDailyAverage,
     growth: (downloadSum / stats[0].historicalDownload) * 100,
     downloadDailyAverage: downloadSum / stats.length,
     uniqueness: (uniqueDownloadSum / downloadSum) * 100,
-  }
+  };
 
   return {
     project,
     fields,
     stats,
     summary,
-  }
+  };
 }

@@ -1,35 +1,61 @@
 {
+  "name": "curseforge-analytics-viewer",
   "homepage": "https://antoinegag.github.io/curseforge-analytics-viewer",
-  "name": "curseforgestatsreader",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "papaparse": "^4.6.3",
-    "plotly.js": "^1.44.4",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-plotly.js": "^2.2.0",
-    "react-scripts": "2.1.5",
-    "semantic-ui-react": "^0.85.0"
+    "@nivo/bar": "^0.62.0",
+    "@nivo/line": "^0.62.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/papaparse": "^5.2.2",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-plotly.js": "^2.2.4",
+    "@types/react-router-dom": "^5.1.5",
+    "classnames": "^2.2.6",
+    "gh-pages": "^3.1.0",
+    "heroicons-react": "^1.3.0",
+    "papaparse": "^5.3.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-dropzone": "^11.2.0",
+    "react-loader-spinner": "^3.1.14",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "build:style": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
+    "start": "yarn run build:style && react-scripts start",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
+    "build": "yarn run build:style && react-scripts build",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "@types/classnames": "^2.2.10",
+    "@types/react-loader-spinner": "^3.1.0",
+    "autoprefixer": "^10.0.0",
+    "postcss-cli": "^8.0.0",
+    "tailwindcss": "^1.8.10"
   }
 }
