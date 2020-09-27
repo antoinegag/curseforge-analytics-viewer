@@ -39,10 +39,10 @@ export default function FileUpload({
           {file.name}
         </div>
         <button
-          className="flex items-center p-2 underline"
+          className="flex items-center p-2 underline hover:text-orange-600 transition duration-500 ease-in-out"
           onClick={(e) => onNewExport()}
         >
-          <PlusCircle size={24} /> New export
+          New export <PlusCircle size={24} className="ml-2 " />
         </button>
       </div>
     );

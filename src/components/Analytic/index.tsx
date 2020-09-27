@@ -22,19 +22,15 @@ export default function Analytic({ analytics }: Props) {
       <div className="p-5">
         <div className="text-center text-lg flex items-center justify-center lg:w-3/4 mx-auto flex-wrap">
           <div className="w-1/2 md:w-1/3 lg:w-1/5">
-            <div className="font-bold text-2xl">
-              {summary.growth.toFixed(0)}%
-            </div>
-            Download growth
+            <div className="font-bold text-2xl">{stats.length} days</div>
+            Period
           </div>
 
           <div className="w-1/2 md:w-1/3 lg:w-1/5">
             <div className="font-bold text-2xl">
-              {summary.downloadDailyAverage.toLocaleString(undefined, {
-                maximumFractionDigits: 0,
-              })}
+              {summary.growth.toFixed(0)}%
             </div>
-            Daily downloads avg.
+            Download growth
           </div>
 
           <div className="w-1/2 md:w-1/3 lg:w-1/5">
@@ -63,8 +59,12 @@ export default function Analytic({ analytics }: Props) {
           </div>
 
           <div className="w-1/2 md:w-1/3 lg:w-1/5">
-            <div className="font-bold text-2xl">{stats.length} days</div>
-            Period
+            <div className="font-bold text-2xl">
+              {summary.downloadDailyAverage.toLocaleString(undefined, {
+                maximumFractionDigits: 0,
+              })}
+            </div>
+            Daily downloads avg.
           </div>
         </div>
       </div>
@@ -77,7 +77,7 @@ export default function Analytic({ analytics }: Props) {
         ValueRenderer={({ value }) => {
           return (
             <>
-          {value} (${`${(parseFloat(value as string) * 0.05).toFixed(2)}`}{" "}
+              {value} (${`${(parseFloat(value as string) * 0.05).toFixed(2)}`}{" "}
               USD)
             </>
           );
