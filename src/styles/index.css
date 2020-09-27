@@ -23,3 +23,7 @@ h4 {
 .drop-zone {
   @apply border-2 border-gray-400 border-dashed flex items-center justify-center;
 }
+
+a {
+  @apply underline cursor-pointer;
+}

@@ -10,10 +10,8 @@ export function parseCSVFile(file: File) {
   });
 }
 
-interface StatsLine {
+export interface StatsLine {
   date: string;
-  // id: record[1],
-  // name: record[2],
   points: number;
   historicalDownload: number;
   dailyDownload: number;
@@ -22,7 +20,29 @@ interface StatsLine {
   dailyCurseForgeDownload: number;
 }
 
-export default function parseAnalytics(analytics: string[][]) {
+export interface Analytics {
+  project: {
+    name: string;
+    id: string;
+  };
+  fields: string[];
+  stats: StatsLine[];
+  summary: {
+    curseDownloadSum: number;
+    twitchDownloadSum: number;
+    pointSum: number;
+    downloadSum: number;
+    uniqueDownloadSum: number;
+    cursePercentage: number;
+    twitchPercentage: number;
+    pointDailyAverage: number;
+    growth: number;
+    downloadDailyAverage: number;
+    uniqueness: number;
+  };
+}
+
+export default function parseAnalytics(analytics: string[][]): Analytics {
   const fileData = [...analytics];
   const fields = fileData[0];
   fields.splice(1, 2);
@@ -44,8 +64,6 @@ export default function parseAnalytics(analytics: string[][]) {
   fileData.forEach((record) => {
     const statsLine = {
       date: record[0],
-      // id: record[1],
-      // name: record[2],
       points: parseFloat(record[3]),
       historicalDownload: parseInt(record[4]),
       dailyDownload: parseInt(record[5]),

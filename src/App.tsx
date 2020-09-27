@@ -1,44 +1,72 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
+
 import classNames from "classnames";
 import "./App.css";
 import FileUpload from "./components/FileUpload";
 import Title from "./components/Title";
-import parseAnalytics, { parseCSVFile } from "./helpers/AnalyticsParser";
-import Trend from "./components/Trend";
+import parseAnalytics, {
+  Analytics,
+  parseCSVFile,
+} from "./helpers/AnalyticsParser";
+import Analytic from "./components/Analytic";
+import Privacy from "./pages/Privacy";
+import Help from "./pages/Help";
+import Contact from "./pages/Contact";
 
 function App() {
+  useEffect(() => {
+    const lastImport = localStorage.getItem("lastImport");
+    if (lastImport != null) {
+      setData(JSON.parse(lastImport) as Analytics);
+    }
+  }, []);
+
   const handleUpload = useCallback(async (file: File) => {
     setLoading(true);
     const res = await parseCSVFile(file);
     const analytics = parseAnalytics(res.data as string[][]);
 
     setData(analytics);
+
+    localStorage.setItem("lastImport", JSON.stringify(analytics));
+
     setLoading(false);
   }, []);
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [data, setData] = useState<unknown>();
+  const [data, setData] = useState<Analytics>();
 
   return (
-    <div className="min-h-screen p-5 flex flex-col">
-      <div className="lg:w-2/3 mx-5 lg:mx-auto">
-        <Title />
-        <hr className="my-5" />
-      </div>
-      {loading && <div>Loading</div>}
-      {!loading && (
-        <FileUpload
-          className={classNames({ "flex-grow": !data })}
-          onUpload={handleUpload}
-        />
-      )}
-      {!loading && data && (
-        <div>
-          Report
-          <Trend stats={(data as any).stats} />
+    <Router>
+      <div className="min-h-screen p-5 flex flex-col mx-2">
+        <div className="lg:w-2/3 mx-5 lg:mx-auto">
+          <Title />
+          <hr className="my-5" />
         </div>
-      )}
-    </div>
+        <Switch>
+          <Route path="/privacy">
+            <Privacy />
+          </Route>
+          <Route path="/help">
+            <Help />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/">
+            {loading && <div>Loading</div>}
+            {!loading && data && <Analytic analytics={data} />}
+            {!loading && (
+              <FileUpload
+                className={classNames({ "flex-grow": !data })}
+                onUpload={handleUpload}
+              />
+            )}
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

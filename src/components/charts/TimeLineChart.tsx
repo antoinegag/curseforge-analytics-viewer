@@ -4,15 +4,29 @@ import { ResponsiveLine, Serie } from "@nivo/line";
 interface Props {
   data: Serie[];
   height?: number;
+  color?: string;
+  ValueRenderer?: React.ComponentType<ValueRendererProps>;
 }
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
-export default function Test({ data /* see data tab */, height }: Props) {
+
+export interface ValueRendererProps {
+  value: number | string | Date;
+}
+
+function DefaultValueRender({ value }: { value: unknown }) {
+  if (typeof value === "number") {
+    return <>{(value as number).toLocaleString()}</>;
+  }
+  return <>{value}</>;
+}
+
+export default function TimeLineChart({
+  data,
+  height = 400,
+  color = "#DD5F18",
+  ValueRenderer = DefaultValueRender,
+}: Props) {
   return (
-    <div style={{ height: height || 400 }}>
+    <div style={{ height: height }}>
       <ResponsiveLine
         data={data}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
@@ -20,7 +34,7 @@ export default function Test({ data /* see data tab */, height }: Props) {
           type: "time",
           useUTC: false,
           format: "%Y-%m-%d",
-          precision: "month",
+          precision: "day",
         }}
         yScale={{
           type: "linear",
@@ -35,14 +49,11 @@ export default function Test({ data /* see data tab */, height }: Props) {
                 {`${date.getDay()}-${date.getMonth()}-${date.getFullYear()}`}
               </div>
               <div>
-                {point.data.y} (
-                {`${(parseFloat(point.data.y as string) * 0.05).toFixed(2)}`}{" "}
-                USD)
+                <ValueRenderer value={point.data.y} />
               </div>
             </div>
           );
         }}
-        curve="stepBefore"
         enablePoints={false}
         enableGridX={false}
         axisBottom={{
@@ -56,11 +67,10 @@ export default function Test({ data /* see data tab */, height }: Props) {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "Daily points",
           legendOffset: -40,
           legendPosition: "middle",
         }}
-        colors={{ scheme: "nivo" }}
+        colors={color}
         pointColor={{ theme: "background" }}
         pointBorderColor={{ from: "serieColor" }}
         useMesh={true}
