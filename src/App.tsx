@@ -73,6 +73,10 @@ function App() {
                   className={classNames("w-full", { "flex-grow": !data })}
                   onUpload={handleUpload}
                   file={file}
+                  onNewExport={() => {
+                    setData(undefined);
+                    setFile(undefined);
+                  }}
                 />
               </div>
             )}
