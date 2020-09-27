@@ -5,21 +5,21 @@
 @tailwind utilities;
 
 h1 {
-  @apply text-5xl;
+  @apply text-5xl font-brand;
 }
 
 h2 {
-  @apply text-4xl;
+  @apply text-4xl font-brand;
 }
 
 h3 {
-  @apply text-3xl;
+  @apply text-3xl font-brand;
 }
 
 h4 {
-  @apply text-2xl;
+  @apply text-2xl font-brand;
 }
 
-.App {
-  @apply min-h-screen w-1/2 mx-auto py-5;
+.drop-zone {
+  @apply border-2 border-gray-400 border-dashed flex items-center justify-center;
 }

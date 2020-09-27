@@ -1,3 +1,21 @@
 body {
-  background: linear-gradient(-45deg, hsl(113, 39%, 91%), hsl(120, 20%, 97%));
+  background: linear-gradient(-45deg, hsl(37, 39%, 91%), hsl(40, 20%, 97%));
+}
+
+.slide-right {
+  overflow: hidden;
+}
+
+.slide-right p {
+  animation: 1s slide-right;
+}
+
+@keyframes slide-right {
+  from {
+    margin-left: -500px;
+  }
+
+  to {
+    margin-left: 0%;
+  }
 }
