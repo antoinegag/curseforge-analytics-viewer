@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c1d5b631f1b65b04895ada03f764584d",
+    "revision": "d6b2b5d09857e4f70ada6fd3b772fe6d",
     "url": "/curseforge-analytics-viewer/index.html"
   },
   {
