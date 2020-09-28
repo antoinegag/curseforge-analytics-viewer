@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/curseforge-analytics-viewer/static/css/main.b1245320.chunk.css",
-    "main.js": "/curseforge-analytics-viewer/static/js/main.c211c8f1.chunk.js",
-    "main.js.map": "/curseforge-analytics-viewer/static/js/main.c211c8f1.chunk.js.map",
+    "main.js": "/curseforge-analytics-viewer/static/js/main.9ec4906f.chunk.js",
+    "main.js.map": "/curseforge-analytics-viewer/static/js/main.9ec4906f.chunk.js.map",
     "runtime-main.js": "/curseforge-analytics-viewer/static/js/runtime-main.ed07a323.js",
     "runtime-main.js.map": "/curseforge-analytics-viewer/static/js/runtime-main.ed07a323.js.map",
     "static/css/2.f87e9f44.chunk.css": "/curseforge-analytics-viewer/static/css/2.f87e9f44.chunk.css",
     "static/js/2.e946f217.chunk.js": "/curseforge-analytics-viewer/static/js/2.e946f217.chunk.js",
     "static/js/2.e946f217.chunk.js.map": "/curseforge-analytics-viewer/static/js/2.e946f217.chunk.js.map",
     "index.html": "/curseforge-analytics-viewer/index.html",
-    "precache-manifest.2d743d69bbf0baba755ea8b2e9fdc7b0.js": "/curseforge-analytics-viewer/precache-manifest.2d743d69bbf0baba755ea8b2e9fdc7b0.js",
+    "precache-manifest.b40f027745950e478b56699eb342b630.js": "/curseforge-analytics-viewer/precache-manifest.b40f027745950e478b56699eb342b630.js",
     "service-worker.js": "/curseforge-analytics-viewer/service-worker.js",
     "static/css/2.f87e9f44.chunk.css.map": "/curseforge-analytics-viewer/static/css/2.f87e9f44.chunk.css.map",
     "static/css/main.b1245320.chunk.css.map": "/curseforge-analytics-viewer/static/css/main.b1245320.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.f87e9f44.chunk.css",
     "static/js/2.e946f217.chunk.js",
     "static/css/main.b1245320.chunk.css",
-    "static/js/main.c211c8f1.chunk.js"
+    "static/js/main.9ec4906f.chunk.js"
   ]
 }
