@@ -30,10 +30,10 @@
   },
   "scripts": {
     "build:style": "tailwind build src/styles/index.css -o src/styles/tailwind.css",
-    "start": "set PUBLIC_URL=. && yarn run build:style && react-scripts start",
-    "predeploy": "yarn run build",
+    "start": "set PUBLIC_URL=. && npm run build:style && react-scripts start",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build": "yarn run build:style && react-scripts build",
+    "build": "npm run build:style && react-scripts build",
     "test": "react-scripts test"
   },
   "eslintConfig": {
