@@ -1,3 +1,5 @@
+# CurseForge has removed the ability to download your analytics data. This app is now archived.
+
 ![banner](./public/banner.png)
 
 # Visualize CurseForge Analytics exports from your browser
